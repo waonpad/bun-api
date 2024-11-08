@@ -1,23 +1,24 @@
 {
-  "name": "bun-temp",
-  "module": "index.ts",
-  "type": "module",
+  "name": "bun-api",
   "scripts": {
     "prepare": "lefthook install",
+    "setup": "bun install && cp -n .env.example .env; exit 0",
+    "dev": "bun run --watch src/index.ts",
+    "// TODO: これでいいのか確認": "",
+    "build": "bun build --compile --minify --sourcemap --bytecode src/index.ts --outfile out/app",
+    "// ビルドされたjs確認用": "",
+    "buildjs": "bun build --sourcemap src/index.ts --outdir out/js --target bun",
+    "start": "NODE_ENV=production out/app",
     "fmt": "biome format --write .",
     "lnt": "biome lint --write .",
-    "che": "biome check --write .",
-    "test": "echo 'vitest run してください'",
-    "test:w": "vitest watch --silent",
-    "test:ci": "vitest run --silent"
+    "che": "biome check --write ."
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@types/bun": "latest",
-    "lefthook": "^1.8.2",
-    "vitest": "^2.1.4"
+    "@types/bun": "^1.1.13",
+    "lefthook": "^1.8.2"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.6.3"
   }
 }
