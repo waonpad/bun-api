@@ -4,11 +4,6 @@
     "prepare": "lefthook install",
     "setup": "bun install && cp -n .env.example .env; exit 0",
     "dev": "bun run --watch src/index.ts",
-    "// TODO: これでいいのか確認": "",
-    "build": "bun build --compile --minify --sourcemap --bytecode src/index.ts --outfile out/app",
-    "// ビルドされたjs確認用": "",
-    "buildjs": "bun build --sourcemap src/index.ts --outdir out/js --target bun",
-    "start": "NODE_ENV=production out/app",
     "fmt": "biome format --write .",
     "lnt": "biome lint --write .",
     "che": "biome check --write ."
