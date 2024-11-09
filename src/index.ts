@@ -2,10 +2,10 @@ import { FileSystemRouter, serve } from "bun";
 import type { RouteHandler, RouteMethod, RouteModule } from "./types";
 
 const main = async () => {
-  // apiディレクトリ配下のファイルをnextjsスタイルでルーティングする
+  // appディレクトリ配下のファイルをnextjsスタイルでルーティングする
   const router = new FileSystemRouter({
     style: "nextjs",
-    dir: "src/api",
+    dir: `${import.meta.dir}/app`,
   });
 
   const server = serve({
